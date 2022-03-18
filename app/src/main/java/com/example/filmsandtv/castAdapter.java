@@ -1,6 +1,7 @@
 package com.example.filmsandtv;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,14 @@ public class castAdapter extends RecyclerView.Adapter<castAdapter.viewHolder>{
             holder.cast_name.setVisibility(View.GONE);
         }
         holder.cast_name.setText(member.getName());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(mContext, castDetails.class);
+                i.putExtra("id", member.getId());
+                mContext.startActivity(i);
+            }
+        });
     }
 
     @Override

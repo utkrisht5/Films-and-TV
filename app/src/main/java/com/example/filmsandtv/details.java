@@ -109,7 +109,8 @@ public class details extends AppCompatActivity {
                             JSONObject m = ca.getJSONObject(i);
                             String url = m.getString("profile_path");
                             String name = m.getString("name");
-                            cast_member.add(new cast(url, name));
+                            String id = m.getString("id");
+                            cast_member.add(new cast(url, name, id));
                         }
                         putData(cast, cast_member);
                     JSONArray cr = credits.getJSONArray("crew");
@@ -117,7 +118,8 @@ public class details extends AppCompatActivity {
                         JSONObject m = cr.getJSONObject(i);
                         String url = m.getString("profile_path");
                         String name = m.getString("name");
-                        crew_member.add(new cast(url, name));
+                        String id = m.getString("id");
+                        crew_member.add(new cast(url, name, id));
                     }
                     putData(crew, crew_member);
                 } catch (
